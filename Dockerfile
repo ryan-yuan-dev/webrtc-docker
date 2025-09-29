@@ -17,7 +17,7 @@ RUN apt-get install -y vim
 # 清理缓存以减小镜像体积
 RUN rm -rf /var/lib/apt/lists/*
 
-# 存放 webrtc 源文件5
+# 存放 webrtc 源文件
 WORKDIR /workspace/webrtc
 
 # 存放编译环境

@@ -1,11 +1,13 @@
 ## 镜像管理
 
 - 构建镜像
+
   ```shell
   docker build -t webrtc-docker:latest .
   ```
 
 - 查看所有镜像
+
   ```shell
   docker images
   # or
@@ -22,6 +24,7 @@
 ## 容器管理
 
 - 启动容器
+
   ```shell
   # 启动一个挂载本地目录的交互式容器（适用于 Windows 系统）
   # --name webrtcdocker-01：将容器命名为 "webrtcdocker-01"
@@ -33,9 +36,8 @@
   docker run --name webrtcdocker-01 -v C:/Users/ryany/ryan-workspace/cpp-project/webrtc-docker/webrtc-workspace/webrtc:/workspace/webrtc -it webrtc-docker:latest bash
   ```
 
-  
-
 - 查看运行中的容器
+
   ```shell
   docker ps
   ```
@@ -44,7 +46,6 @@
   ```shell
   docker ps -a
   ```
-  
 - 删除容器
   ```shell
   docker rm 容器id
