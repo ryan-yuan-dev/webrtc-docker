@@ -1,0 +1,48 @@
+{
+  "name": "WebRTC Dev Container",
+  "image": "webrtc-docker:0.0.15",
+  "workspaceFolder": "/workspace/webrtc",
+  "mounts": [
+    "source=${localWorkspaceFolder}/webrtc-workspace,target=/workspace/webrtc,type=bind,consistency=cached"
+  ],
+  "runArgs": [
+    "--name",
+    "webrtc-remote-debug",
+    "--network=host",
+    "--cap-add=SYS_PTRACE",
+    "--security-opt",
+    "seccomp=unconfined",
+    "-p",
+    "5050:5050"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools",
+        "llvm-vs-code-extensions.vscode-clangd",
+        "ms-vscode.cmake-tools",
+        "kylinideteam.cmake-intellisence",
+        "wmaurer.change-case",
+        "cschlosser.doxdoc",
+        "hakua.doxygen-previewer"
+      ],
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "C_Cpp.intelliSenseEngine": "disabled",
+        "clangd.enable": true,
+        "clangd.path": "/usr/bin/clangd",
+        "clangd.inactiveRegions.useBackgroundHighlight": true,
+        "clangd.inactiveRegions.opacity": 0.75,
+        "clangd.arguments": [
+          "--compile-commands-dir=out/ubuntu",
+          "--background-index"
+        ],
+        "[cpp]": {
+          "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
+        },
+        "editor.formatOnSave": true
+      }
+    }
+  },
+  "remoteUser": "root"
+}

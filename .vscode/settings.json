@@ -1,0 +1,11 @@
+{
+  "clangd.path": "/usr/bin/clangd",
+  "clangd.enable": true,
+  "clangd.arguments": [
+    "--compile-commands-dir=webrtc-workspace/webrtc-android/src",
+    "--background-index",
+    "--clang-tidy"
+  ],
+  "C_Cpp.intelliSenseEngine": "disabled",
+  
+}

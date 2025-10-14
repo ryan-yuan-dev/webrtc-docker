@@ -4,6 +4,8 @@
 
   ```shell
   docker build -t webrtc-docker:latest .
+  # macos m1 编译 webrtc 时需要需要指定平台为 linux/amd64
+  docker build --platform=linux/amd64 -t webrtc-docker:0.0.15 .
   ```
 
 - 查看所有镜像
@@ -32,8 +34,9 @@
   #    - C:/Users/ryany/ryan-workspace/cpp-project/webrtc-docker/webrtc-workspace/webrtc：主机上的源目录
   #    - /workspace/webrtc：容器内的目标目录（需确保容器内此路径存在）
   # -it：开启交互式终端
-  # bash：容器启动后执行 bash 命令
+  # bash：容器启动后执行 bash 命令，如果是 mac m1/m2 上运行时，需要指定 --platform=linux/amd64
   docker run --name webrtcdocker-01 -v C:/Users/ryany/ryan-workspace/cpp-project/webrtc-docker/webrtc-workspace/webrtc:/workspace/webrtc -it webrtc-docker:latest bash
+
   ```
 
 - 查看运行中的容器
@@ -43,12 +46,32 @@
   ```
 
 - 查看所有容器
+
   ```shell
   docker ps -a
   ```
+
 - 删除容器
+
   ```shell
   docker rm 容器id
   # or
   docker rm 容器名称
+  ```
+
+- 删除所有容器
+
+  ```shell
+  docker rm $(docker ps -a -q)
+  ```
+
+- 停止容器
+  ```shell
+  docker stop 容器id
+  # or
+  docker stop 容器名称
+  ```
+- 启动容器
+  ```shell
+  docker exec -it 容器id bash
   ```
