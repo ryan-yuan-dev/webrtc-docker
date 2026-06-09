@@ -1,11 +1,15 @@
+# Docker 相关脚本
+
 ## 镜像管理
 
 - 构建镜像
 
   ```shell
+  # 使用 Dockerfile 构建镜像
   docker build -t webrtc-docker:latest .
   # macos m1 编译 webrtc 时需要需要指定平台为 linux/amd64
   docker build --platform=linux/amd64 -t webrtc-docker:0.0.15 .
+  docker build --progress=plain --no-cache -t webrtc-docker:0.0.1 .
   ```
 
 - 查看所有镜像
@@ -17,6 +21,7 @@
   ```
 
 - 删除镜像
+
   ```shell
   docker rmi 镜像id
   # or
@@ -66,12 +71,15 @@
   ```
 
 - 停止容器
+
   ```shell
   docker stop 容器id
   # or
   docker stop 容器名称
   ```
+
 - 启动容器
+
   ```shell
   docker exec -it 容器id bash
   ```
